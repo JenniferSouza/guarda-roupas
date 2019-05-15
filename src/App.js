@@ -1,4 +1,5 @@
 import React from 'react';
+import Look from '../src/components/Look';
 
 export default class App extends React.Component {
 
@@ -17,21 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div style={{ textAlign: 'center' }}>
-        <div>
-          <div className="shirt">
-            {this.state.shirt === null ?
-              <p>Selecione uma camisa!</p> : <img style={{ width: 50, height: 50 }}
-                alt="imagem da camisa que você selecionou"
-                src={this.state.shirt} />
-            }
-          </div>
-          <div className="pant">
-            {this.state.pant === null ? <p>Selecione uma calça!</p> : <img style={{ width: 50, height: 50 }} alt="imagem da calça que você selecionou" src={this.state.pant} />}
-          </div>
-          <div className="sneaker">
-            {this.state.sneaker === null ? <p>Selecione um tênis!</p> : <img style={{ width: 50, height: 50 }} alt="imagem do tênis que você selecionou" src={this.state.sneaker} />}
-          </div>
-        </div>
+        <Look pant={this.state.pant} shirt={this.state.shirt} sneaker={this.state.sneaker}/> {/*chamada do componente*/}
         <div>
           <div><p>Selecione o modelo da camisa</p></div>
           <div>
@@ -44,17 +31,17 @@ export default class App extends React.Component {
           <div>
             <button onClick={() => { this.setState({ pant: 'images/brown-pants.svg', pantId: 1 }) }}>Calça Marrom</button>
             <button onClick={() => { this.setState({ pant: 'images/jeans-pants.svg', pantId: 2 }) }}>Calça Jeans</button>
-            <button onClick={() => { this.setState({ pant: 'images/sweat-pants.svg', pantId: 3 }) }}>Calça de Moletom</button>
+            <button onClick={() => { this.setState({ pant: 'images/sweat-pants.svg', pantId: 3 }) }}>Calça de Vermelha</button>
           </div>
 
           <div><p>Selecione o modelo do tênis</p></div>
           <div>
-            <button onClick={() => { this.setState({ sneaker: 'images/green-sneaker.svg', sneakerId: 1}) }}>Tênis verde</button>
-            <button onClick={() => { this.setState({ sneaker: 'images/red-sneaker.svg', sneakerId: 2}) }}>Tênis vermelho</button>
-            <button onClick={() => { this.setState({ sneaker: 'images/brown-sneaker.svg', sneakerId: 3}) }}>Tênis marrom</button>
+            <button onClick={() => { this.setState({ sneaker: 'images/green-sneaker.svg', sneakerId: 1 }) }}>Tênis verde</button>
+            <button onClick={() => { this.setState({ sneaker: 'images/red-sneaker.svg', sneakerId: 2 }) }}>Tênis vermelho</button>
+            <button onClick={() => { this.setState({ sneaker: 'images/brown-sneaker.svg', sneakerId: 3 }) }}>Tênis marrom</button>
           </div>
 
-          <button onClick={() => { console.log("Camisa: "+this.state.shirtId+"\nCalça: "+this.state.pantId+"\nTênis: "+this.state.sneakerId) }}>Salvar</button>
+          <button onClick={() => { console.log("Camisa: " + this.state.shirtId + "\nCalça: " + this.state.pantId + "\nTênis: " + this.state.sneakerId) }}>Salvar</button>
         </div>
       </div>
     );
